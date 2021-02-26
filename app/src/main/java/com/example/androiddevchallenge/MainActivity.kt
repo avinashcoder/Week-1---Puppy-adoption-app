@@ -18,44 +18,123 @@ package com.example.androiddevchallenge
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material.MaterialTheme
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.androiddevchallenge.ui.Puppy
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class MainActivity : AppCompatActivity() {
+    val puppys = mutableListOf<Puppy>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        addPuppy();
+
         setContent {
             MyTheme {
-                MyApp()
+                Surface(color = Color.White) {
+                    puppyList(puppys)
+                }
+
             }
         }
+    }
+
+    private fun addPuppy() {
+        puppys.add(Puppy(R.drawable.puppy_white,"Ruby","Dog","Very cute and white puppy with silky hair"))
+        puppys.add(Puppy(R.drawable.puppy_two,"Sandy","Dog","One day, this Siberian Husky could pull a sled across Alaska"))
+        puppys.add(Puppy(R.drawable.puppy_three,"Tommy","Dog","A devoted companion and incredible working dog, a Golden Retriever is loved by all"))
+        puppys.add(Puppy(R.drawable.puppy_two,"Dora","Dog","Poodles, like this pup, can be a variety of solid colors, including blues, grays, silvers, browns, cafe-au-laits, apricots and creams"))
+        puppys.add(Puppy(R.drawable.puppy_white,"Lovely","Dog","One of the cutest things about the Wirehaired Pointing Griffon? His abundant mustache and eyebrows, for sure"))
+        puppys.add(Puppy(R.drawable.puppy_three,"Bajirao","Dog","With a face like this and the personality to match, it's no wonder the Lab has been the most popular breed for 26 years"))
+        puppys.add(Puppy(R.drawable.puppy_two,"Alex","Dog","If you ever wondered what was cuter than one Pug pup, you have your answer. (It's two Pug pups!)"))
+        puppys.add(Puppy(R.drawable.puppy_three,"Mastani","Dog","These unbelievably adorable bat-like ears are characteristic of the French Bulldog"))
+
     }
 }
 
 // Start building your app here!
+
 @Composable
-fun MyApp() {
-    Surface(color = MaterialTheme.colors.background) {
-        Text(text = "Ready... Set... GO!")
-    }
+fun puppyList(puppys: List<Puppy>) {
+
+        LazyColumn (contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp), modifier = Modifier.fillMaxWidth()) {
+
+            items(puppys){ puppy ->
+                PuppyRow(puppy)
+            }
+        }
+
 }
+
+@Composable
+fun PuppyRow(puppy: Puppy) {
+    Column() {
+        Spacer(Modifier.height(6.dp))
+        Row(verticalAlignment = Alignment.CenterVertically,modifier = Modifier.padding(PaddingValues(0.dp,6.dp))) {
+            Image(
+                painter = painterResource(puppy.image),
+                contentDescription = null,
+                modifier = Modifier
+                    .height(60.dp)
+                    .width(60.dp)
+                    .clip(shape = RoundedCornerShape(30.dp)),
+                contentScale = ContentScale.Crop
+            )
+            Column( modifier = Modifier
+                .padding(PaddingValues(15.dp, 0.dp, 10.dp, 0.dp))
+                .fillMaxWidth()) {
+                Text(puppy.name,fontSize = 18.sp, color = Color.Black)
+                Text(puppy.type, fontSize = 13.sp, color = Color.DarkGray)
+                Text(puppy.desc, fontSize = 12.sp, color = Color.Gray, maxLines = 1, overflow = TextOverflow.Ellipsis)
+            }
+        }
+
+        Spacer(Modifier.height(4.dp))
+
+        Box(Modifier.fillMaxWidth().height(1.dp).background(Color.LightGray))
+    }
+
+}
+
 
 @Preview("Light Theme", widthDp = 360, heightDp = 640)
 @Composable
 fun LightPreview() {
+    val puppys = mutableListOf<Puppy>()
+    for(i in 0 until 10){
+        puppys.add(Puppy(R.drawable.puppy_white,"Tommy","Dog", "Good barking dog"))
+    }
     MyTheme {
-        MyApp()
+        puppyList(puppys)
     }
 }
 
 @Preview("Dark Theme", widthDp = 360, heightDp = 640)
 @Composable
 fun DarkPreview() {
+    val puppys = mutableListOf<Puppy>()
+    for(i in 0 until 10){
+        puppys.add(Puppy(R.drawable.puppy_white,"Tommy","Dog", "Good barking dog"))
+    }
     MyTheme(darkTheme = true) {
-        MyApp()
+        puppyList(puppys)
     }
 }
