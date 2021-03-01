@@ -45,12 +45,12 @@ fun TopBar(onToggle: () -> Unit) {
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
-                text = "Hii Android,",
+                text = "Puppy Adoption",
                 textAlign = TextAlign.Start,
                 style = MaterialTheme.typography.h5,
-                color = MaterialTheme.colors.surface
+                color = colorResource(id = R.color.text)
             )
-
+/*
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
@@ -58,12 +58,12 @@ fun TopBar(onToggle: () -> Unit) {
                 textAlign = TextAlign.Start,
                 style = MaterialTheme.typography.subtitle1,
                 color = MaterialTheme.colors.surface
-            )
+            )*/
         }
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(0.dp, 24.dp, 36.dp, 0.dp),
+                .padding(0.dp, 15.dp, 26.dp, 0.dp),
             horizontalArrangement = Arrangement.End
         ) {
             AdoptionThemeSwitch(onToggle = { onToggle() })

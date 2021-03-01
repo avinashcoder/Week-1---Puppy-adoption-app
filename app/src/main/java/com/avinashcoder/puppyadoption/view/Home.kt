@@ -37,7 +37,7 @@ fun Home(navController: NavHostController, puppyList: List<Puppy>, toggleTheme: 
                     toggleTheme()
                 }
             )
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(2.dp))
         }
         /*items(puppyList) { ItemPuppy ->
             PuppyRow(ItemPuppy)

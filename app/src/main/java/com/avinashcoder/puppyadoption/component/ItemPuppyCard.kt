@@ -39,6 +39,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -79,7 +80,7 @@ fun ItemPuppyCard(puppy: Puppy, onItemClicked: (puppy: Puppy) -> Unit) {
                 Text(
                     text = puppy.name,
                     modifier = Modifier.padding(0.dp, 0.dp, 12.dp, 0.dp),
-                    color = MaterialTheme.colors.surface,
+                    color = colorResource(id = R.color.text),
                     fontWeight = FontWeight.Bold,
                     style = typography.subtitle1
                 )
@@ -92,7 +93,7 @@ fun ItemPuppyCard(puppy: Puppy, onItemClicked: (puppy: Puppy) -> Unit) {
                         append(puppy.gender)
                     },
                     modifier = Modifier.padding(0.dp, 0.dp, 12.dp, 0.dp),
-                    color = MaterialTheme.colors.surface,
+                    color = colorResource(id = R.color.text),
                     style = typography.caption
                 )
 
@@ -104,13 +105,13 @@ fun ItemPuppyCard(puppy: Puppy, onItemClicked: (puppy: Puppy) -> Unit) {
                         painter = location,
                         contentDescription = null,
                         modifier = Modifier.size(16.dp, 16.dp),
-                        tint = Color.Red
+                        tint = Color.Blue
                     )
 
                     Text(
                         text = puppy.location,
                         modifier = Modifier.padding(8.dp, 12.dp, 12.dp, 0.dp),
-                        color = MaterialTheme.colors.surface,
+                        color = colorResource(id = R.color.text),
                         style = typography.caption
                     )
                 }
