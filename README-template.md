@@ -1,4 +1,4 @@
-# Put title of your app here
+# Puppy Adoption App using Jetpack Compose
 
 <!--- Replace <OWNER> with your Github Username and <REPOSITORY> with the name of your repository. -->
 <!--- You can find both of these in the url bar when you open your repository in github. -->
@@ -6,12 +6,16 @@
 
 
 ## :scroll: Description
+A sample app of puppy adoption using jetpack compose
 <!--- Describe your app in one or two sentences -->
 
 
 ## :bulb: Motivation and Context
+List view the very interesting part of jetpack composer - No need of adapter and view holder.
+Switching themes is a very interesting one and implementation makes me proud of.
 <!--- Optionally point readers to interesting parts of your submission. -->
 <!--- What are you especially proud of? -->
+Thanks jetpack team for this interesting and useful API. Really Hats Off
 
 
 ## :camera_flash: Screenshots
