@@ -43,12 +43,12 @@ fun Home(navController: NavHostController, puppyList: List<Puppy>, toggleTheme: 
             PuppyRow(ItemPuppy)
         }*/
         items(puppyList) { ItemPuppy ->
-                ItemPuppyCard(
-                    ItemPuppy,
-                    onItemClicked = { dog ->
-                        navController.navigate("details/${dog.id}//${dog.name}/${dog.location}")
-                    }
-                )
+            ItemPuppyCard(
+                ItemPuppy,
+                onItemClicked = { dog ->
+                    navController.navigate("details/${dog.id}//${dog.name}/${dog.location}")
+                }
+            )
         }
     }
 }
