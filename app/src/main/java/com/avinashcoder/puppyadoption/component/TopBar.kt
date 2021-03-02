@@ -43,15 +43,6 @@ fun TopBar(onToggle: () -> Unit) {
                 style = MaterialTheme.typography.h5,
                 color = colorResource(id = R.color.text)
             )
-/*
-            Spacer(modifier = Modifier.height(8.dp))
-
-            Text(
-                text = "Happy to see you here",
-                textAlign = TextAlign.Start,
-                style = MaterialTheme.typography.subtitle1,
-                color = MaterialTheme.colors.surface
-            )*/
         }
         Row(
             modifier = Modifier
